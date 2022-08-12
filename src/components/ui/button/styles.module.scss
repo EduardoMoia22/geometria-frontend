@@ -1,0 +1,40 @@
+.button{
+  max-width: 100%;
+  width: 100%;  
+  min-height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  
+  background-color: transparent;
+  color: var(--primary);
+  font-weight: bold;
+  transition: all .12s ease-in-out;
+
+  &:hover{
+    background-color: var(--primary);
+    color: var(--white);
+  }
+
+  &:disabled{
+    .spin{
+      animation: animate 2s infinite;
+    }
+  }
+}
+
+
+
+@keyframes animate{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+

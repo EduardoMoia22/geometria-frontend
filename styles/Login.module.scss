@@ -1,0 +1,65 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  form{
+    width: 720px;
+    max-width: 90%;
+    min-height: 600px;
+    background-color: var(--background-card);
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    padding: 60px 40px;
+
+    h1{
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--primary);
+      text-transform: uppercase;
+    }
+
+    div{
+      margin-top: 72px;
+      width: 100%;
+      max-width: 100%;
+      flex: 1;
+
+      input{
+        margin-top: 32px;
+        padding: 0 16px;
+        color: var(--white);
+        
+        &:first-child{
+          margin-top: 0;
+        }
+
+      }
+
+      .link{
+        margin-top: 48px;
+        text-align: center;
+        display: block;
+        color: var(--white);
+
+        span{
+          color: var(--primary);
+          font-weight: bold;
+          margin-left: 4px;
+        }
+      }
+
+      button{
+        margin-top: 64px;
+      }
+    }
+  }
+}

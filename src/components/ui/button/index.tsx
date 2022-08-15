@@ -13,7 +13,9 @@ export function Button({ children, loading }: ButtonProps){
      {loading ? (
         <Spinner size={32} weight="fill" className={styles.spin}/>
       ) : (
-        <a className="text-white">{children}</a>
+        <span>
+          {children}
+        </span>
       )}
       
       

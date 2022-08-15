@@ -4,7 +4,7 @@ export default function Document(){
   return(
     <Html>
       <Head>
-        <title>Geometria</title>
+
       </Head>
       <body>
         <Main />

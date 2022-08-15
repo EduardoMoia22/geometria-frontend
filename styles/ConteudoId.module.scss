@@ -1,0 +1,20 @@
+.container{
+  width: 1440px;
+  max-width: 90%;
+  margin: 64px auto;
+
+  display: flex;
+  flex-direction: column;
+
+  h1{
+    color: var(--white);
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 3rem 0;
+  }
+}

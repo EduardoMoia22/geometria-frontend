@@ -4,6 +4,8 @@ import { CaretDoubleRight } from "../../node_modules/phosphor-react/dist/index";
 import styles from '../../styles/Conteudo.module.scss'
 import { api } from "../services/api";
 import { useState } from "react";
+import { Button } from "../components/ui/button/index";
+import Link from "../../node_modules/next/link";
 
 type ContentProps = {
   id: string;
@@ -35,8 +37,13 @@ export default function Conteudo({contents}: ContentListProps){
           </div>
             <div className={styles.cardWrapper}>
               {contentsList.map((item) => (
-                <div key={item.id}>
-                  <strong>{item.title}</strong>
+                <div key={item?.id}>
+                  <strong>{item?.title}</strong>
+                    <Button>
+                      <Link href={`/conteudo/${item?.id}`}>
+                        Acessar
+                      </Link>
+                    </Button>
                 </div>
               ))}
             </div>
@@ -48,8 +55,6 @@ export default function Conteudo({contents}: ContentListProps){
 
 export async function getServerSideProps(){
   const response = await api.get('/contents')
-
-  console.log(response.data)
   
   return{
     props:{

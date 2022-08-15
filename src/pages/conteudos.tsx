@@ -20,7 +20,6 @@ interface ContentListProps{
 export default function Conteudo({contents}: ContentListProps){
   
   const [contentsList, setContentsList] = useState(contents || [])
-  
   return(
     <>
       <Head>

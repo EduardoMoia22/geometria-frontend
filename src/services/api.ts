@@ -1,5 +1,5 @@
 import axios from "../../node_modules/axios/index";
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3333'
+  baseURL: 'https://geobackends.herokuapp.com/'
 })

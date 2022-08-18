@@ -4,4 +4,17 @@
   border: 1px solid var(--primary);
   background-color: transparent;
   border-radius: 8px;
+  padding: 0 16px;
+  color: var(--white);
+  outline: none;
+}
+
+.textarea{
+  width: 100%;
+  border: 1px solid var(--primary);
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 16px;
+  color: var(--white);
+  outline: none;
 }

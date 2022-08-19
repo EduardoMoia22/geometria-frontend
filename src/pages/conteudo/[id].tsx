@@ -38,7 +38,7 @@ export default function Conteudo({ postContent }: PostProps) {
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { id: "id" } }],
+    paths: [{ params: { id: "Futebol" } }, { params: { id: "Basquete" } }],
     fallback: true,
   };
 }

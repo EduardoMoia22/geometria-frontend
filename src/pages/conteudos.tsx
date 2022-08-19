@@ -5,19 +5,22 @@ import styles from "../../styles/Conteudo.module.scss";
 import { useState } from "react";
 import { Button } from "../components/ui/button/index";
 import Link from "../../node_modules/next/link";
-import { listConteudos } from "../markdowns/content";
+import fs from "fs";
 
 type ContentProps = {
-  id: string;
-  title: string;
+  metadata: {
+    slug: string;
+  };
+  content: string;
 };
 
 interface ContentListProps {
-  contents: ContentProps[];
+  post: ContentProps[];
 }
 
-export default function Conteudo() {
-  const [contentsList, setContentsList] = useState(listConteudos || []);
+export default function Conteudo({ post }: ContentListProps) {
+  const [contentsList, setContentsList] = useState(post || []);
+
   return (
     <>
       <Head>
@@ -34,10 +37,10 @@ export default function Conteudo() {
           </div>
           <div className={styles.cardWrapper}>
             {contentsList.map((item) => (
-              <div key={item?.id}>
-                <strong>{item?.title}</strong>
+              <div key={item?.metadata.slug}>
+                <strong>{item?.metadata.slug}</strong>
                 <Button>
-                  <Link href={`/conteudo/${item?.id}`}>Acessar</Link>
+                  <Link href={`/conteudo/${item?.metadata.slug}`}>Acessar</Link>
                 </Button>
               </div>
             ))}
@@ -46,4 +49,28 @@ export default function Conteudo() {
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  function getAllPosts() {
+    const allPostFileName = fs.readdirSync("./src/markdowns/");
+
+    const dataPost = allPostFileName.map((filename) => {
+      const fileContent = fs.readFileSync(`./src/markdowns/${filename}`);
+      return {
+        metadata: {
+          slug: filename.replace(".md", ""),
+        },
+        content: fileContent.toString(),
+      };
+    });
+    return dataPost;
+  }
+
+  const post = getAllPosts();
+  return {
+    props: {
+      post,
+    },
+  };
 }

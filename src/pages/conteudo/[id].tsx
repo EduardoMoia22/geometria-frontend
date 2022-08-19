@@ -5,43 +5,60 @@ import { Header } from "../../components/Header/index";
 import { AuthContext } from "../../contexts/AuthContext";
 import styles from "../../../styles/ConteudoId.module.scss";
 import ReactMarkdown from "../../../node_modules/react-markdown/index";
-import { listConteudos } from "../../markdowns/content";
+import fs from "fs";
 
-type Data = {
-  id: string;
-  title: string;
+interface PostProps {
+  postContent: PostData;
+}
+
+type PostData = {
+  slug: string;
   content: string;
 };
-
-export default function Conteudo() {
-  const [conteudos, setConteudos] = useState<Data[]>(listConteudos);
-  const [loading, setLoading] = useState(false);
-
+export default function Conteudo({ postContent }: PostProps) {
+  const content = postContent;
   const router = useRouter();
-  const param = router.query.id;
-
-  const findContent = conteudos.find((conteudos) => conteudos.id === param);
-
+  if (router.isFallback) return <div>Loading...</div>;
   return (
     <>
       <Head>
-        <title>{findContent?.title}</title>
+        <title>{content.slug}</title>
       </Head>
 
       <Header />
 
       <main className={styles.container}>
-        {loading ? (
-          <h1>Carregando...</h1>
-        ) : (
-          <>
-            <h1>{findContent?.title}</h1>
-            <article className="prose prose-neutral dark:prose-invert">
-              <ReactMarkdown>{findContent?.content}</ReactMarkdown>
-            </article>
-          </>
-        )}
+        <h1>{content.slug}</h1>
+
+        <article className="prose prose-neutral dark:prose-invert">
+          <ReactMarkdown>{content.content}</ReactMarkdown>
+        </article>
       </main>
     </>
   );
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [{ params: { id: "sth" } }, { params: { id: "teste" } }],
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  function getContentOfFile() {
+    const slug = params.id;
+    const fileContent = fs.readFileSync(`./src/markdowns/${slug}.md`);
+
+    return {
+      slug: slug,
+      content: fileContent.toString(),
+    };
+  }
+  const postContent = getContentOfFile();
+  return {
+    props: {
+      postContent,
+    },
+  };
 }

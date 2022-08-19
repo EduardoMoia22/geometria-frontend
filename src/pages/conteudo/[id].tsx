@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import Head from "../../../node_modules/next/head";
 import { useRouter } from "../../../node_modules/next/router";
 import { Header } from "../../components/Header/index";
-import { AuthContext } from "../../contexts/AuthContext";
 import styles from "../../../styles/ConteudoId.module.scss";
 import ReactMarkdown from "../../../node_modules/react-markdown/index";
 import fs from "fs";
@@ -40,7 +38,7 @@ export default function Conteudo({ postContent }: PostProps) {
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { id: "sth" } }, { params: { id: "teste" } }],
+    paths: [{ params: { id: "id" } }],
     fallback: true,
   };
 }

@@ -1,0 +1,31 @@
+.container {
+  width: 1440px;
+  max-width: 90%;
+  margin: 64px auto;
+
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 3rem;
+
+  article {
+    color: var(--white);
+
+    min-height: 300px;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--background-card);
+
+    padding: 3rem 5rem;
+
+    .ButtonCorrect {
+      background-color: aqua;
+    }
+
+    .ButtonIncorrect {
+      background-color: red;
+    }
+  }
+}

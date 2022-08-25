@@ -26,9 +26,7 @@ export default function Conteudo({ postContent }: PostProps) {
       <Header />
 
       <main className={styles.container}>
-        <h1>{content.slug}</h1>
-
-        <article className="prose prose-neutral dark:prose-invert">
+        <article className="prose prose-lg prose-neutral dark:prose-invert prose-p:text-white prose-p:text-lg">
           <ReactMarkdown>{content.content}</ReactMarkdown>
         </article>
       </main>

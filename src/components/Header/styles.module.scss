@@ -1,4 +1,4 @@
-.container{
+.container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7,28 +7,35 @@
   max-width: 90%;
   margin: 0 auto;
   height: 100px;
-  
-  nav{
-    ul{
+
+  nav {
+    ul {
       display: flex;
       align-items: center;
       gap: 1.5rem;
 
       list-style: none;
 
-      li{
-        a{
+      li {
+        a {
           color: var(--white);
         }
       }
     }
   }
 
-  .logo{
+  .logo {
     font-size: 1.5rem;
     text-transform: uppercase;
     color: var(--primary);
     font-weight: bold;
   }
-}
 
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 2rem;
+    .logo {
+      margin-top: 2rem;
+    }
+  }
+}

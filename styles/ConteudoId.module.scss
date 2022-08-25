@@ -1,12 +1,14 @@
-.container{
+.container {
   width: 1440px;
   max-width: 90%;
   margin: 64px auto;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  h1{
+  h1 {
     color: var(--white);
     font-size: 2.5rem;
     font-weight: bold;

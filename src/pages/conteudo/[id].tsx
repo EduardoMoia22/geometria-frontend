@@ -36,7 +36,10 @@ export default function Conteudo({ postContent }: PostProps) {
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { id: "Futebol" } }, { params: { id: "Basquete" } }],
+    paths: [
+      { params: { id: "calculo-de-area-em-plantas" } },
+      { params: { id: "trigonometria-no-dia-a-dia" } },
+    ],
     fallback: true,
   };
 }

@@ -2,7 +2,7 @@
 
 A geometria é constantemente utilizada na Arquitetura, com a finalidade de fazer medições. Um exemplo de sua utilização é no calculo de área em uma planta.
 
-## Como calcular a área de uma planta
+## Como calcular a área de uma planta HENRY
 
 ![Planta](https://i.ytimg.com/vi/f9hgWOHLbno/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCNGvcEhrhBm43gZzBD1lT49kt2hQ)
 O cálculo da área neste caso é bem simples, basta multiplicar lado x comprimento para retângulos ou lado x lado para quadrados. Exemplos: Um terreno com 15 metros de frente e 25 metros de comprimento.

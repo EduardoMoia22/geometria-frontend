@@ -39,6 +39,7 @@ export async function getStaticPaths() {
     paths: [
       { params: { id: "calculo-de-area-em-plantas" } },
       { params: { id: "trigonometria-no-dia-a-dia" } },
+      { params: { id: "teste" } },
     ],
     fallback: true,
   };
